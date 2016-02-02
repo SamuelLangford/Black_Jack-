@@ -1,0 +1,131 @@
+*{
+margin: 0%;
+padding: 0%;
+}
+
+body {
+	background-image:url(../images/hollywood-sign.jpg);
+	/*background-color: gold;*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	color:white;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	/*background-image: url(RickGrimesKing.jpg);*/
+}
+
+button {
+	width: 10%;
+	height: 10%;
+	background-image: url(../images/star.png);
+	border-radius: 20%;
+}
+
+#player-cards {
+	/*border: 1px solid red;*/
+	/*background-color: red;*/
+	/*margin-top: 20%;*/
+	width: 100%;
+	height: 40%;
+
+	/*display: inline-block;*/
+/*	overflow: hidden;*/
+}
+#dealer-cards{
+	/*border: 1px solid red;*/
+	width: 100%;
+	height: 40%;
+	/*position: relative;*/
+	/*display: inline-block;*/
+	/*position: relative;*/
+	/*margin-top: 20%;*/
+	/*overflow: hidden;*/
+}
+.card-pic {
+	position: relative;
+	background-repeat: no-repeat;
+	/*background-image: url(cardBack.jpg);*/
+	background-color: white;
+/*	background-position: 0px 0px, center;*/
+    height: 60%;
+    width: 15%;
+    display: inline-block;
+    text-align: center;
+/*    float:top;*/
+	vertical-align: middle;
+	line-height: 30px;
+    padding: 0;
+    margin: 1%;
+    border: 3px solid purple;
+    border-radius: 5%;
+    font-size: 200%;
+    color:purple;
+
+/*    background-size: #909088;*/	
+    /*overflow: none;*/
+    box-sizing:border-box;
+
+    /*position: absolute;*/
+    /*overflow: hidden;*/
+}
+
+#super-container{
+	position: relative;
+	/*position: fixed;*/
+    width: 25%;
+    height: 70%;
+    float: right;
+    /*float: top;*/
+    /*vertical-align: top;*/
+    /*z-index:10; /*/
+
+}
+#icon-container {
+	width: 55%;
+	height: 100%;
+	position: absolute;
+	margin-right: 10%;
+ 	right: 9px;
+ 	/*vertical-align: top;*/
+
+}
+
+img {
+	width: 100%;
+	height: 25%;
+	margin: 5%;
+	/*background-color: white;*/
+
+
+}
+p {
+	background-color: black;
+	border:3px solid blue;
+	text-align: right;
+}
+@keyframes fun {
+    0%   {background-image: url(../images/heart.png);}
+    45%  {background-image: url(../images/dimonds.png);}
+    73%  {background-image: url(../images/spade.jpeg);}
+    100% {background-image: url(../images/club.jpeg);}
+}
+#secret {
+    animation-name: fun;
+     animation-duration: 1s;
+    animation-iteration-count:infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
