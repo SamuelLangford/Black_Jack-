@@ -107,87 +107,38 @@ $(document).ready(function(){   // jQuery onload syntax
  	 		
 
  	 		if(player.cash <= 0){
-	 	
-	 			alert('Get out of my house');	 
-	 			// $('.hit').remove();	
-	 			// $('.stay').remove();	
-	 			//$('<button>Deal</button>').attr('class', "deal-button").prependTo('body');
-
-	 			// $('#cash').text("You have this much resouces" + player.cash);
-	 			// $('.deal-button').show();
-
+	 			alert('Get out of my house');	 ;
 	 		}
 	 	}
 	 }
 	
-			var getCard = function(what, where) {  // '#player-cards') options for player ||dealerValue,  '#dealer-cards') options for dealer
+			var getCard = function(what, where) {  
 	 			var thisHit = randomCard();//gets the randdom card
-	 		// 	console.log(noun1);
-
-				// console.log(thisHit);
-		 		
 		 		checkForBust();
-				
+
 				var newDiv = $("<div>").addClass('card-pic')
-				newDiv.click(function(){// this whole thing changes ace from 1 to 11
+				newDiv.click(function(){ //changes ace from 1 to 11
 	 			if(thisHit.value1 === 1){
 	 				thisHit.value1 = 11;
 	 				player.cardValue += 10;
 	 				$('#cardStock').text("Wow those are some pretty nice cards " + player.cardValue);
-	 				// console.log('changed to 11');
-	 				// console.log(thisHit.value1);
-	 				// console.log(player.cardValue);
+	 
 	 			}else if(thisHit.value1 === 11){
 	 				thisHit.value1 = 1;
 	 				player.cardValue -= 10;
 	 				$('#cardStock').text("Wow those are some pretty nice cards " + player.cardValue);
-	 				// console.log('changed to 1')
-	 				// console.log(thisHit.value1)
-	 				// console.log(player.cardValue);
 	 			}
-
-	 			// console.log('clicked');
 	 		});
 	 		// this is creates a div with the class of card 
 				
 				$(newDiv).css({"background-image": thisHit.pic, 'width': '20%'});//this makes the divs back ground the image 
 				
 				$(where).append(newDiv);//this puts the new div at the bottom of player-card container 		
-
-				// var $kind = $('<p>');
-				// $kind.text(thisHit.kind);
 				newDiv.text(thisHit.kind);
-
-
-				// $(newDiv).text(thisHit.kind);	
-
-				// if(thisHit.value1 === 1) {
-				// 	$(this).click(this.value1 === 11);
-				// }
-				
-				// if(thisHit.value1 === 1){ß
-				// 	$(newDiv).attr('class', 'smokingAce');
-				// };
-	
 				 number = thisHit.value1;
-
 				 return number;
-				// console.log(player.cardValue);
 		 }//ends get card function;
-	 		
-	 		// $(".card-pic").click(function(){
-	 		// 	console.log('clicked');
-	 		// });
-	 		
-	 			// $('.smokingAce').click(function(){
-	 			// 	$(this).value1 = 11;
-	 			// 	console.log($(this));
-	 			// })
-	 		
-
-
-	 		$('.deal-button').click(function(){//this funciton should give you 4 cards and 4 sets of values 
-			// console.log('clcked deal button');
+	 		$('.deal-button').click(function(){//this funciton gives you 4 cards and 4 sets of values 
 			if(player.bet === 0){// so a player must place a bet before playing 
 				alert('You must place your bet before starting');
 				return 0;
@@ -199,17 +150,8 @@ $(document).ready(function(){   // jQuery onload syntax
 				  player.cardValue += getCard(player.cardValue, '#player-cards');
 				  dealerValue += getCard(dealerValue, '#dealer-cards');
 				  $('<div class="card-pic" id="secret"></div>').appendTo('#dealer-cards');
-				  // dealerValue += getCard(dealerValue, '#dealer-cards');
-				  // if(dealerValue < 17){
-				  // 	 dealerValue += getCard(dealerValue, '#dealer-cards');
-				  // }
-				  // $('#dealer-cards').append(dealerValue);
 				  $('h5').text(dealerValue);
-				  // console.log(dealerValue);
-				  // console.log(player.cardValue);
-				  // console.log('this is the deal button');
 				  $('#cardStock').text("Wow those are some pretty nice cards " + player.cardValue);
-				  //console.log('this is getCard '+ getCard(player.cardValue, '#player-cards'));
 			
 			if(dealerValue === 21 || player.cardValue=== 21){//black jack 
 				// console.log('Black Jack!');
@@ -219,8 +161,6 @@ $(document).ready(function(){   // jQuery onload syntax
 				$('<button>These cards are alright.</button>').attr('class', "stay").prependTo('body');
 			  $('<button>Excuse me, i\'d like another card. </button>').attr('class', "hit").prependTo('body')//.click(getCard(player.cardValue, '#player-cards'));
 			// })//ends deal-button function 
-				
-				// $("#hit").click(getCard(player.cardValue, '#player-cards'));	
 			
 				$('.hit').click(function(){
 					player.cardValue += getCard(player.cardValue, '#player-cards');
@@ -230,36 +170,26 @@ $(document).ready(function(){   // jQuery onload syntax
 
 					
 					 $('.stay').click(function(){
-	 		 	// console.log('hello from stay');
-				 		 	// console.log("This is players card value "+ player.cardValue);
-				 		 	// console.log("This is dealer  card value "+ dealerValue);
 				 		 	$('#secret').remove();
 				 		 	 dealerValue += getCard(dealerValue, '#dealer-cards');
-				 		 	 // console.log(dealerValue);
 				 		 	 if(dealerValue < 17){
 				  	 dealerValue += getCard(dealerValue, '#dealer-cards');
 				  	 $('h5').text(dealerValue);
 				  }
-				 		 	// $('#dealer-cards').append(dealerValue);
    			 	setTimeout(function(){
    			 		if(dealerValue > player.cardValue && dealerValue <= 21){
-		 		 		// console.log('You loose this round');
 		 		 		player.cash -= player.bet;
-		 		 		// console.log(player);
 		 		 		$('span').text('You really suck at black jack ');
 		 		 		$('h5').text(dealerValue);
 	 			 } else if(player.cardValue > dealerValue){
 		 		 			player.cash+=player.bet;
-		 		 			// $('<span>You won that hand but you really suck at Black jack</span>').appendTo
 		 		 			$('span').text('You won I guess');
 		 		 			 var coinSound = new Audio("styles/smw_coin.wav");
   							coinSound.play();
-		 					// console.log(player);
-		 					// console.log('player wins' + player.cardValue);	
 		 		 }else{
 		 		 			$('span').text('Your the most mediocore person i\'ve ever met');
 		 		 }
-		 		// $('<button class="deal-button">Deal</button>')/*.attr('class', 'deal-button')*/.prependTo('body')
+		
 				$('h5').text('');
 				$('#cash').text("You have this much $" + player.cash);//updates cash
 		 		$('.deal-button').show();//puts the deal button back
