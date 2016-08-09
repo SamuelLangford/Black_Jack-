@@ -4,7 +4,7 @@ $(document).ready(function(){   // jQuery onload syntax
 	  this.kind = kind,//queen or king or 3 or 4 or any type of card
 	  this.value1 = value1,//the numerical value 
 	  this.suit = suit,//heart or spade you know
-	  this.pic = pic//hope this works 
+	  this.pic = pic
 	}	
 	  
 	var deck = [ //an array of objects that are the cards 
